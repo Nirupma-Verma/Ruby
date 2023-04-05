@@ -18,3 +18,18 @@ words.chars.each_with_index do |char, index|
 end
 
 puts words
+
+#array of secrets to decrypt
+
+secret_messages.each_with_index do |msg, index|    
+    msg.chars.each_with_index do |char, index|
+      next unless capltr.include?(char) or smalltr.include?(char)    
+      if capltr.include?(char)
+        msg[index] = capltr[capltr.index(char) - 13]
+      else
+        msg[index] = smalltr[smalltr.index(char) - 13]
+      end
+    end
+  secret_messages[index] = msg  
+end    
+  
